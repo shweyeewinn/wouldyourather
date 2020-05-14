@@ -13,14 +13,7 @@ const PollList = ({ questions, users }) => {
           ) : (
             questions.map((q) => {
               const author = users[q.author];
-              return (
-                <Poll
-                  key={q.id}
-                  question={q}
-                  author={author}
-                  timestamp={q.timestamp}
-                />
-              );
+              return <Poll key={q.id} question={q} author={author} />;
             })
           )}
         </div>

@@ -1,8 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { formatDate } from '../utils/helper';
 
-const Poll = ({ author, question, timestamp }) => {
+const Poll = ({ author, question }) => {
   const history = useHistory();
 
   const routeChange = (e, questionId) => {
@@ -26,7 +25,6 @@ const Poll = ({ author, question, timestamp }) => {
           </div>
           <div className="question-text">
             <h3>Would you rather</h3>
-            <div>{formatDate(timestamp)}</div>
             <p>...{question.optionOne.text}...</p>
             <button
               className="btn btn-full"
