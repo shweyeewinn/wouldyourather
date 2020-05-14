@@ -33,7 +33,7 @@ Start the development server `npm start`.
 
 ## App Functionality
 
-### Sign In
+### Sign In Page
 
 - For the user to impersonate/ log in as an existing user, there is a login box to select a name from the list of existing users.
 - This application allows the user to log out and log back in.
@@ -50,7 +50,7 @@ Start the development server `npm start`.
 - The questions in both categories are arranged from the most recently created (top) to the least recently created (bottom)
 - A polling question links to details of that poll.
 
-### Questions and detail of each question
+### Question Page
 
 - When a poll is clicked on the home page, the following is shown:
   - the text “Would You Rather”;
