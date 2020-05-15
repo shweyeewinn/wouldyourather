@@ -13,14 +13,13 @@ import NewPoll from './NewPoll';
 import LeaderBoard from './LeaderBoard';
 import SignIn from './SignIn';
 import notFoundPage from './notFoundPage';
+import PrivateRoute from './PrivateRoute';
 
 class App extends Component {
   componentDidMount() {
     this.props.handleInitialData();
   }
   render() {
-    const { signedInUser } = this.props;
-
     return (
       <Router>
         <Fragment>
@@ -34,21 +33,18 @@ class App extends Component {
           <div className="container">
             <Header />
             <div className="main-content">
-              {signedInUser !== null ? (
-                <div>
-                  <Route path="/" exact component={Home} />
-                  <Route
-                    path="/questions/:question_id"
-                    exact
-                    component={PollDetail}
-                  />
-                  <Route path="/add" component={NewPoll} />
-                  <Route path="/leaderboard" component={LeaderBoard} />
-                  <Route path="/404" component={notFoundPage} />
-                </div>
-              ) : (
-                <SignIn />
-              )}
+              <div>
+                <PrivateRoute path="/" exact component={Home} />
+                <PrivateRoute
+                  path="/questions/:question_id"
+                  exact
+                  component={PollDetail}
+                />
+                <PrivateRoute path="/add" component={NewPoll} />
+                <PrivateRoute path="/leaderboard" component={LeaderBoard} />
+                <PrivateRoute path="/404" component={notFoundPage} />
+                <Route path="/signin" component={SignIn} />
+              </div>
             </div>
           </div>
         </Fragment>

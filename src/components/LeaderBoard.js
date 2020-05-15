@@ -55,7 +55,7 @@ const LeaderBoard = ({ sortedLeaderBoard }) => {
 
 function mapStateToProps({ users }) {
   const leaderboard = [];
-  Object.values(users).map((user) => {
+  Object.values(users).forEach((user) => {
     const { answers, avatarURL, id, name, questions } = user;
     const answeredQuestions = Object.keys(answers).length;
     const createdQuestions = questions.length;

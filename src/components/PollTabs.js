@@ -20,7 +20,7 @@ class PollTabs extends Component {
       const answered = [];
       const unAnswered = [];
 
-      Object.values(nextProps.questions).map((q) => {
+      Object.values(nextProps.questions).forEach((q) => {
         if (
           Object.keys(nextProps.users[nextProps.signedInUser].answers).includes(
             q.id

@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //Action
@@ -10,7 +10,7 @@ import { handleSignedInUser } from '../actions/shared';
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
+    this.state = { value: '', redirectToReferrer: false };
   }
 
   handleChange = (event) => {
@@ -22,13 +22,22 @@ class SignIn extends React.Component {
     const userId = this.state.value;
     this.props.handleSignedInUser(userId);
     window.sessionStorage.setItem('signedInUser', userId);
-    // console.log('session', sessionStorage.getItem('signedInUser'));
-    this.props.history.push('/');
+    this.setState({
+      redirectToReferrer: true,
+    });
   };
 
   render() {
     const { users } = this.props;
-    const { value } = this.state;
+    const { value, redirectToReferrer } = this.state;
+
+    const { from } = this.props.location.state || {
+      from: { pathname: '/' },
+    };
+
+    if (redirectToReferrer === true) {
+      return <Redirect to={from} />;
+    }
 
     return (
       <div className="new-question-container">
@@ -86,7 +95,7 @@ class SignIn extends React.Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ users, signedInUser }) {
   return {
     users,
   };
@@ -97,4 +106,4 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 //SignIn.propTypes = propTypes;
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignIn));
+export default connect(mapStateToProps, mapDispatchToProps)(SignIn);

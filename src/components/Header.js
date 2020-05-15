@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from './Navigation';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 //Actions
 import { handleSignedInUser } from '../actions/shared';
@@ -12,6 +13,7 @@ const Header = (props) => {
     sessionStorage.removeItem('signedInUser');
     // sessionStorage.clear();
     handleSignedInUser(null);
+    props.history.push('/signin');
   };
 
   return (
@@ -54,4 +56,4 @@ const mapDispatchToProps = (dispatch) => ({
   handleSignedInUser: (userId) => dispatch(handleSignedInUser(userId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

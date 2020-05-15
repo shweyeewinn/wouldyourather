@@ -13,7 +13,7 @@ In this app, users will be able to
 
 ## Demo
 
-Project Demo can be viewed [here](https://www.loom.com/share/f122207fae3941bba000102d4ccbc046).
+Project Demo can be viewed [here](https://www.loom.com/share/e0212a4f662c4d43a4c6bdc0078b163c).
 
 ## Installation
 

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 //Components
 import PollResult from './PollResult';
@@ -29,6 +30,13 @@ class PollDetail extends Component {
     const questionId = this.props.match.params.question_id;
     const { questions, users, signedInUser } = this.props;
     const { answers } = this.state;
+
+    if (
+      Object.keys(questions).length === 0 &&
+      questions[questionId] === undefined
+    ) {
+      return <Redirect to="/404" />;
+    }
 
     return (
       <>

@@ -616,7 +616,8 @@ input[type='radio'] {
 }
 
 /* New Question CSS */
-.new-question-container {
+.new-question-container,
+.notfound-wrapper {
   width: 50%;
   margin: 0 auto;
 }
@@ -725,9 +726,13 @@ input {
     width: 90%;
     padding: 0px 5%;
   }
+  .react-tabs .react-tabs__tab h3 {
+    font-size: 18px;
+  }
 }
 @media only screen and (max-width: 800px) {
-  .new-question-container {
+  .new-question-container,
+  .notfound-wrapper {
     width: 70%;
   }
   .leaderboard-wrapper {
@@ -736,7 +741,8 @@ input {
   }
 }
 @media only screen and (max-width: 600px) {
-  .new-question-container {
+  .new-question-container,
+  .notfound-wrapper {
     width: 80%;
   }
 }
