@@ -7,7 +7,7 @@ import { handleInitialData } from '../actions/shared';
 
 //Components
 import Header from './Header';
-import Home from './Home';
+import PollTabs from './PollTabs';
 import PollDetail from './PollDetail';
 import NewPoll from './NewPoll';
 import LeaderBoard from './LeaderBoard';
@@ -34,7 +34,7 @@ class App extends Component {
             <Header />
             <div className="main-content">
               <div>
-                <PrivateRoute path="/" exact component={Home} />
+                <PrivateRoute path="/" exact component={PollTabs} />
                 <PrivateRoute
                   path="/questions/:question_id"
                   exact
