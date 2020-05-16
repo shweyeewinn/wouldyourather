@@ -4,15 +4,14 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 //Actions
-import { handleSignedInUser } from '../actions/shared';
+import { handleLogoutUser } from '../actions/shared';
 
 const Header = (props) => {
-  const { signedInUserInfo, handleSignedInUser } = props;
+  const { signedInUserInfo, handleLogoutUser } = props;
   const signOut = (e) => {
     e.preventDefault();
+    handleLogoutUser();
     sessionStorage.removeItem('signedInUser');
-    // sessionStorage.clear();
-    handleSignedInUser(null);
     props.history.push('/signin');
   };
 
@@ -53,7 +52,7 @@ function mapStateToProps({ users, signedInUser }) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  handleSignedInUser: (userId) => dispatch(handleSignedInUser(userId)),
+  handleLogoutUser: () => dispatch(handleLogoutUser()),
 });
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Header));

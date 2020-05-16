@@ -1,9 +1,15 @@
-import { SET_SIGNEDINUSER } from '../types';
+import { SET_SIGNEDINUSER, LOGOUT_USER } from '../types';
 
-const signedInUser = (id) => {
+export const signedInUser = (id) => {
   return {
     type: SET_SIGNEDINUSER,
     id,
   };
 };
-export default signedInUser;
+
+export const logoutUser = () => {
+  return {
+    type: LOGOUT_USER,
+    id: null,
+  };
+};

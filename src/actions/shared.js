@@ -9,7 +9,8 @@ import {
 //ACTION CREATORS
 import { getUser, addQuestionToUser, saveAnswerToUser } from './users';
 import { getQuestions, addQuestion, saveQuestionAnswer } from './questions';
-import signedInUser from './signedInUser';
+import { signedInUser } from './signedInUser';
+import { logoutUser } from './signedInUser';
 
 function getInitialData() {
   return Promise.all([_getUsers(), _getQuestions()]).then(
@@ -32,6 +33,12 @@ export const handleInitialData = () => {
 export const handleSignedInUser = (userId) => {
   return (dispatch) => {
     dispatch(signedInUser(userId));
+  };
+};
+
+export const handleLogoutUser = () => {
+  return (dispatch) => {
+    dispatch(logoutUser());
   };
 };
 

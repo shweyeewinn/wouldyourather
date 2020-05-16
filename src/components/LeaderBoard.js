@@ -1,55 +1,53 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const usersListing = (sortedLeaderBoard) => {
-  return sortedLeaderBoard.map((user) => {
-    const {
-      id,
-      name,
-      avatarURL,
-      score,
-      answeredQuestions,
-      createdQuestions,
-    } = user;
+const userDetail = (user) => {
+  const {
+    id,
+    name,
+    avatarURL,
+    score,
+    answeredQuestions,
+    createdQuestions,
+  } = user;
 
-    return (
-      <div key={id} className="user-wrapper">
-        <div className="user-avatar">
-          <img
-            src={avatarURL}
-            alt={`Avatar of ${name}`}
-            className="avatar-img"
-          />
+  return (
+    <div key={id} className="user-wrapper">
+      <div className="user-avatar">
+        <img src={avatarURL} alt={`Avatar of ${name}`} className="avatar-img" />
+      </div>
+      <div className="user-info">
+        <h3>{name}</h3>
+        <div className="user-questions btm-border">
+          <p>Answered questions</p>
+          <p className="right-aligned-text">{answeredQuestions}</p>
         </div>
-        <div className="user-info">
-          <h3>{name}</h3>
-          <div className="user-questions btm-border">
-            <p>Answered questions</p>
-            <p className="right-aligned-text">{answeredQuestions}</p>
-          </div>
-          <div className="user-questions">
-            <p>Created questions</p>
-            <p className="right-aligned-text">{createdQuestions}</p>
-          </div>
+        <div className="user-questions">
+          <p>Created questions</p>
+          <p className="right-aligned-text">{createdQuestions}</p>
         </div>
-        <div className="user-score">
-          <div className="score-title">
-            <h3>Score</h3>
-          </div>
-          <div className="score">
-            <div className="score-icon">
-              <span>{score}</span>
-            </div>
+      </div>
+      <div className="user-score">
+        <div className="score-title">
+          <h3>Score</h3>
+        </div>
+        <div className="score">
+          <div className="score-icon">
+            <span>{score}</span>
           </div>
         </div>
       </div>
-    );
-  });
+    </div>
+  );
 };
 
 const LeaderBoard = ({ sortedLeaderBoard }) => {
   return (
-    <div className="leaderboard-wrapper">{usersListing(sortedLeaderBoard)}</div>
+    <>
+      {sortedLeaderBoard.map((user) => (
+        <div className="leaderboard-wrapper">{userDetail(user)}</div>
+      ))}
+    </>
   );
 };
 
