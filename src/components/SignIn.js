@@ -21,7 +21,7 @@ class SignIn extends React.Component {
     event.preventDefault();
     const userId = this.state.value;
     this.props.handleSignedInUser(userId);
-    window.sessionStorage.setItem('signedInUser', userId);
+    // window.sessionStorage.setItem('signedInUser', userId);
     this.setState({
       redirectToReferrer: true,
     });

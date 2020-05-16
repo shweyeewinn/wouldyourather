@@ -31,10 +31,7 @@ class PollDetail extends Component {
     const { questions, users, signedInUser } = this.props;
     const { answers } = this.state;
 
-    if (
-      Object.keys(questions).length === 0 &&
-      questions[questionId] === undefined
-    ) {
+    if (questions[questionId] === undefined) {
       return <Redirect to="/404" />;
     }
 

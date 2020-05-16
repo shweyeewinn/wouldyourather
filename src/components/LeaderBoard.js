@@ -2,17 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const userDetail = (user) => {
-  const {
-    id,
-    name,
-    avatarURL,
-    score,
-    answeredQuestions,
-    createdQuestions,
-  } = user;
+  const { name, avatarURL, score, answeredQuestions, createdQuestions } = user;
 
   return (
-    <div key={id} className="user-wrapper">
+    <>
       <div className="user-avatar">
         <img src={avatarURL} alt={`Avatar of ${name}`} className="avatar-img" />
       </div>
@@ -37,17 +30,19 @@ const userDetail = (user) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
 const LeaderBoard = ({ sortedLeaderBoard }) => {
   return (
-    <>
+    <div className="leaderboard-wrapper">
       {sortedLeaderBoard.map((user) => (
-        <div className="leaderboard-wrapper">{userDetail(user)}</div>
+        <div className="user-wrapper" key={user.id}>
+          {userDetail(user)}
+        </div>
       ))}
-    </>
+    </div>
   );
 };
 

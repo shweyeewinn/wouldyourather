@@ -1,8 +1,8 @@
 import { SET_SIGNEDINUSER, LOGOUT_USER } from '../types';
 
-const authedUser = sessionStorage.getItem('signedInUser');
+// const authedUser = sessionStorage.getItem('signedInUser');
 
-const signedInUser = (state = authedUser, action) => {
+const signedInUser = (state = null, action) => {
   switch (action.type) {
     case SET_SIGNEDINUSER:
       return action.id;

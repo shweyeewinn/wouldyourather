@@ -26,7 +26,7 @@ class App extends Component {
           <div className="container-fluid">
             <div className="logo">
               <Link to="/">
-                <h4>WouldYouRatherApp</h4>
+                <h4>Would You Rather App</h4>
               </Link>
             </div>
           </div>
@@ -44,6 +44,7 @@ class App extends Component {
                 <PrivateRoute path="/leaderboard" component={LeaderBoard} />
                 <PrivateRoute path="/404" component={notFoundPage} />
                 <Route path="/signin" component={SignIn} />
+                {/* <PrivateRoute component={notFoundPage} /> */}
               </div>
             </div>
           </div>

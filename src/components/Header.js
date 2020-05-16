@@ -11,7 +11,7 @@ const Header = (props) => {
   const signOut = (e) => {
     e.preventDefault();
     handleLogoutUser();
-    sessionStorage.removeItem('signedInUser');
+    // sessionStorage.removeItem('signedInUser');
     props.history.push('/signin');
   };
 

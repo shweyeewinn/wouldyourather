@@ -9,6 +9,7 @@ class PrivateRoute extends Component {
       <Route
         {...rest}
         render={(props) => {
+          // console.log('this.props', this.props);
           return this.props.signedInUser ? (
             <Component {...props} />
           ) : (
