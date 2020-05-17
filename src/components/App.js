@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 //Actions
@@ -33,7 +33,7 @@ class App extends Component {
           <div className="container">
             <Header />
             <div className="main-content">
-              <div>
+              <Switch>
                 <PrivateRoute path="/" exact component={PollTabs} />
                 <PrivateRoute
                   path="/questions/:question_id"
@@ -44,8 +44,8 @@ class App extends Component {
                 <PrivateRoute path="/leaderboard" component={LeaderBoard} />
                 <PrivateRoute path="/404" component={notFoundPage} />
                 <Route path="/signin" component={SignIn} />
-                {/* <PrivateRoute component={notFoundPage} /> */}
-              </div>
+                <PrivateRoute component={notFoundPage} />
+              </Switch>
             </div>
           </div>
         </Fragment>
