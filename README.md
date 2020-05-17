@@ -20,6 +20,10 @@ Project Demo can be viewed [here](https://www.loom.com/share/e0212a4f662c4d43a4c
 Install all project dependencies with `npm install`.
 Start the development server `npm start`.
 
+## Author
+
+- [Shwe Yee Winn](https://www.linkedin.com/in/shwe-yee-winn-83146744/) - Frontend Engineer
+
 ## Tech Stack
 
 - HTML5
